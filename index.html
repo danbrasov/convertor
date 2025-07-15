@@ -67,6 +67,7 @@
 
 <div class="container">
   <h2>Convertor Date Calendaristice Varta</h2>
+  <p id="infoData" style="text-align:center; font-size: 14px; color: #333;"></p>
 
   <div class="section">
     <h3>DDMMYYYY → DWWY / DDDY</h3>
@@ -208,6 +209,34 @@ function convertBraunCifre() {
   clearResults('resultBraunCifre');
     highlight("resultBraunCifre", `${luna} ${anul}  - Cod litere: ${codLitere}`);
 }
+
+
+
+
+  function displayCurrentDateInfo() {
+  const today = new Date();
+  const dd = today.getDate().toString().padStart(2, '0');
+  const mm = (today.getMonth() + 1).toString().padStart(2, '0');
+  const yyyy = today.getFullYear();
+
+  const start = new Date(yyyy, 0, 0);
+  const diff = today - start + ((start.getTimezoneOffset() - today.getTimezoneOffset()) * 60 * 1000);
+  const dayOfYear = Math.floor(diff / 86400000);
+
+  const jan4 = new Date(yyyy, 0, 4);
+  const jan4Day = jan4.getDay();
+  const mondayOfWeek1 = new Date(jan4);
+  mondayOfWeek1.setDate(jan4.getDate() - ((jan4Day + 6) % 7));
+  const weekNum = Math.floor((today - mondayOfWeek1) / (7 * 86400000)) + 1;
+
+  const totalDays = (new Date(yyyy, 11, 31) - new Date(yyyy, 0, 0)) / 86400000;
+
+  document.getElementById("infoData").innerText =
+    `Astăzi este ${dd}/${mm}/${yyyy} • Ziua ${dayOfYear} din ${Math.round(totalDays)} • Săptămâna ${weekNum}`;
+}
+
+// Apelează funcția la încărcare
+displayCurrentDateInfo();
 </script>
 </body>
 </html>
