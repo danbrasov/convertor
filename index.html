@@ -52,6 +52,12 @@
     span {
       font-weight: bold;
     }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -88,7 +94,23 @@
   </div>
 </div>
 
+<footer>
+  Author Daniel Dirjan
+</footer>
+
 <script>
+function clearResults(except) {
+  if (except !== 'dwwy') document.getElementById("dwwyResult").innerHTML = '';
+  if (except !== 'dddy') document.getElementById("dddyResult").innerHTML = '';
+  if (except !== 'dwwyToDate') document.getElementById("dwwyToDateResult").innerHTML = '';
+  if (except !== 'dddyToDate') document.getElementById("dddyToDateResult").innerHTML = '';
+}
+
+function highlight(elementId, value) {
+  const el = document.getElementById(elementId);
+  el.innerHTML = `<span style="font-size: 20px; color: #006400;">${value}</span>`;
+}
+
 function convertFromDate() {
   const dateStr = document.getElementById("inputDate").value.trim();
   const day = parseInt(dateStr.slice(0,2), 10);
@@ -107,21 +129,17 @@ function convertFromDate() {
   const dayOfYear = Math.ceil((date - new Date(date.getFullYear(), 0, 0)) / 86400000);
   const dddy = `${dayOfYear.toString().padStart(3, '0')}${year % 10}`;
 
-  document.getElementById("dwwyResult").textContent = dwwy;
-  document.getElementById("dddyResult").textContent = dddy;
+  clearResults('dwwy');
+  highlight("dwwyResult", dwwy);
+  highlight("dddyResult", dddy);
 }
 
 function getDateFromWeek(year, week, weekday) {
-  // Transpunem ziua din săptămână (0=duminică, 6=sâmbătă) în format ISO (0=luni, 6=duminică)
   const weekdayIso = (weekday + 6) % 7;
-
-  // Găsim luni din săptămâna 1 ISO (cea care conține 4 ianuarie)
   const jan4 = new Date(year, 0, 4);
-  const jan4Day = jan4.getDay(); // ziua săptămânii pentru 4 ianuarie
+  const jan4Day = jan4.getDay();
   const mondayOfWeek1 = new Date(jan4);
   mondayOfWeek1.setDate(jan4.getDate() - ((jan4Day + 6) % 7));
-
-  // Calculăm ziua finală
   const targetDate = new Date(mondayOfWeek1);
   targetDate.setDate(mondayOfWeek1.getDate() + (week - 1) * 7 + weekdayIso);
   return targetDate;
@@ -134,12 +152,12 @@ function convertFromDWWY() {
   const year = 2020 + parseInt(input.slice(3), 10);
 
   const resultDate = getDateFromWeek(year, weekNum, weekday);
-
   const dd = resultDate.getDate().toString().padStart(2, '0');
   const mm = (resultDate.getMonth() + 1).toString().padStart(2, '0');
   const yyyy = resultDate.getFullYear();
 
-  document.getElementById("dwwyToDateResult").textContent = `${dd}${mm}${yyyy}`;
+  clearResults('dwwyToDate');
+  highlight("dwwyToDateResult", `${dd}${mm}${yyyy}`);
 }
 
 function convertFromDDDY() {
@@ -154,7 +172,8 @@ function convertFromDDDY() {
   const mm = (date.getMonth() + 1).toString().padStart(2, '0');
   const yyyy = date.getFullYear();
 
-  document.getElementById("dddyToDateResult").textContent = `${dd}${mm}${yyyy}`;
+  clearResults('dddyToDate');
+  highlight("dddyToDateResult", `${dd}${mm}${yyyy}`);
 }
 </script>
 
