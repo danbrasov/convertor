@@ -104,7 +104,7 @@ function convertFromDate() {
   const weekNum = Math.ceil((daysSinceJan1 + oneJan.getDay() + 1) / 7);
   const dwwy = `${weekday}${weekNum.toString().padStart(2, '0')}${year % 10}`;
 
-  const dayOfYear = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 86400000);
+  const dayOfYear = Math.ceil((date - new Date(date.getFullYear(), 0, 0)) / 86400000);
   const dddy = `${dayOfYear.toString().padStart(3, '0')}${year % 10}`;
 
   document.getElementById("dwwyResult").textContent = dwwy;
