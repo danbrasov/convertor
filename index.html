@@ -80,14 +80,14 @@
     <h3>DWWY → DDMMYYYY</h3>
     <label>DWWY: <input id="dwwyInput" placeholder="ex:2295"></label>
     <button onclick="convertFromDWWY()">Convertește</button>
-    <p>DDMMYYYY: <span id="dwwyToDateResult" class="result"></span></p>
+    <p>DD.MM.YYYY: <span id="dwwyToDateResult" class="result"></span></p>
   </div>
 
   <div class="section">
     <h3>DDDY → DDMMYYYY</h3>
     <label>DDDY: <input id="dddyInput" placeholder="ex:1965"></label>
     <button onclick="convertFromDDDY()">Convertește</button>
-    <p>DDMMYYYY: <span id="dddyToDateResult" class="result"></span></p>
+    <p>DD.MM.YYYY: <span id="dddyToDateResult" class="result"></span></p>
   </div>
 
   <div class="section">
@@ -167,7 +167,7 @@ function convertFromDWWY() {
   const mm = (resultDate.getMonth() + 1).toString().padStart(2, '0');
   const yyyy = resultDate.getFullYear();
   clearResults('dwwyToDateResult');
-  highlight("dwwyToDateResult", `${dd}${mm}${yyyy}`);
+  highlight("dwwyToDateResult", `${dd}.${mm}.${yyyy}`);
 }
 
 function convertFromDDDY() {
@@ -180,7 +180,7 @@ function convertFromDDDY() {
   const mm = (date.getMonth() + 1).toString().padStart(2, '0');
   const yyyy = date.getFullYear();
   clearResults('dddyToDateResult');
-  highlight("dddyToDateResult", `${dd}${mm}${yyyy}`);
+  highlight("dddyToDateResult", `${dd}.${mm}.${yyyy}`);
 }
 
 function convertBraunLitere() {
