@@ -71,7 +71,7 @@
 
   <div class="section">
     <h3>DDMMYYYY → DWWY / DDDY</h3>
-    <label>Dată (DDMMYYYY): <input id="inputDate" placeholder="ex: 15072025"></label>
+    <label>Dată (DDMMYYYY): <input id="inputDate" placeholder="ex: 15072025" inputmode="numeric"></label>
     <button onclick="convertFromDate()">Convertește</button>
     <p>DWWY: <span id="dwwyResult" class="result"></span></p>
     <p>DDDY : <span id="dddyResult" class="result"></span></p>
@@ -79,28 +79,28 @@
 
   <div class="section">
     <h3>DWWY → DDMMYYYY</h3>
-    <label>DWWY: <input id="dwwyInput" placeholder="ex:2295"></label>
+    <label>DWWY: <input id="dwwyInput" placeholder="ex:2295" inputmode="numeric"></label>
     <button onclick="convertFromDWWY()">Convertește</button>
     <p>DD.MM.YYYY: <span id="dwwyToDateResult" class="result"></span></p>
   </div>
 
   <div class="section">
     <h3>DDDY → DDMMYYYY</h3>
-    <label>DDDY: <input id="dddyInput" placeholder="ex:1965"></label>
+    <label>DDDY: <input id="dddyInput" placeholder="ex:1965" inputmode="numeric"></label>
     <button onclick="convertFromDDDY()">Convertește</button>
     <p>DD.MM.YYYY: <span id="dddyToDateResult" class="result"></span></p>
   </div>
 
   <div class="section">
     <h3>BRAUNSCHWEIG – Litere</h3>
-    <label>Cod (ex: RU): <input id="inputBraunLitere"></label>
+    <label>Cod (ex: RU): <input id="inputBraunLitere" inputmode="text"></label>
     <button onclick="convertBraunLitere()">Convertește</button>
     <p>Rezultat: <span id="resultBraunLitere" class="result"></span></p>
   </div>
 
   <div class="section">
     <h3>BRAUNSCHWEIG – Cifre</h3>
-    <label>Cod (ex: 50): <input id="inputBraunCifre"></label>
+    <label>Cod (ex: 50): <input id="inputBraunCifre" inputmode="numeric"></label>
     <button onclick="convertBraunCifre()">Convertește</button>
     <p>Rezultat: <span id="resultBraunCifre" class="result"></span></p>
   </div>
