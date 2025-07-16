@@ -71,7 +71,7 @@
 
   <div class="section">
     <h3>DDMMYYYY → DWWY / DDDY</h3>
-    <label>Dată (DDMMYYYY): <input id="inputDate" placeholder="ex: 15072025" inputmode="numeric"></label>
+    <label>Dată (DDMMYYYY): <input id="inputDate" placeholder="ex: 15072025" inputmode="numeric" maxlength="8"></label>
     <button onclick="convertFromDate()">Convertește</button>
     <p>DWWY: <span id="dwwyResult" class="result"></span></p>
     <p>DDDY : <span id="dddyResult" class="result"></span></p>
@@ -79,34 +79,34 @@
 
   <div class="section">
     <h3>DWWY → DDMMYYYY</h3>
-    <label>DWWY: <input id="dwwyInput" placeholder="ex:2295" inputmode="numeric"></label>
+    <label>DWWY: <input id="dwwyInput" placeholder="ex:2295" inputmode="numeric" maxlength="4"></label>
     <button onclick="convertFromDWWY()">Convertește</button>
     <p>DD.MM.YYYY: <span id="dwwyToDateResult" class="result"></span></p>
   </div>
 
   <div class="section">
     <h3>DDDY → DDMMYYYY</h3>
-    <label>DDDY: <input id="dddyInput" placeholder="ex:1965" inputmode="numeric"></label>
+    <label>DDDY: <input id="dddyInput" placeholder="ex:1965" inputmode="numeric" maxlength="4"></label>
     <button onclick="convertFromDDDY()">Convertește</button>
     <p>DD.MM.YYYY: <span id="dddyToDateResult" class="result"></span></p>
   </div>
 
   <div class="section">
     <h3>BRAUNSCHWEIG – Litere</h3>
-    <label>Cod (ex: RU): <input id="inputBraunLitere" inputmode="text"></label>
+    <label>Cod (ex: RU): <input id="inputBraunLitere" inputmode="text" maxlength="2"></label>
     <button onclick="convertBraunLitere()">Convertește</button>
     <p>Rezultat: <span id="resultBraunLitere" class="result"></span></p>
   </div>
 
   <div class="section">
     <h3>BRAUNSCHWEIG – Cifre</h3>
-    <label>Cod (ex: 50): <input id="inputBraunCifre" inputmode="numeric"></label>
+    <label>Cod (ex: 50): <input id="inputBraunCifre" inputmode="numeric" maxlength="2"></label>
     <button onclick="convertBraunCifre()">Convertește</button>
     <p>Rezultat: <span id="resultBraunCifre" class="result"></span></p>
   </div>
 </div>
 
-<footer>Author Daniel Dirjan</footer>
+<footer>Author Daniel Dirjan 2025</footer>
 
 <script>
 const braunRef = "BRAUNSCHWEIG";
